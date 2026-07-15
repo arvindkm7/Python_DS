@@ -1,0 +1,27 @@
+# Given an array arr[] denoting heights of n towers and a positive integer k.
+
+# For each tower, you must perform exactly one of the following operations exactly once.
+
+# Increase the height of the tower by k
+# Decrease the height of the tower by k
+
+# Find out the minimum possible difference between the height of the shortest 
+# and tallest towers after you have modified each tower.
+
+def mini_height(arr,k):
+
+    arr.sort()
+    n = len(arr)
+    ans = (arr[n-1] - k ) - (arr[0] + k) 
+    print(ans)
+
+    for i in range(1 , n):
+        if arr[i] - k < 0:
+            continue
+        min_val = min(arr[0] + k, arr[i] - k)
+        max_val = max(arr[i] + k, arr[n-1] - k)
+        print(min_val,max_val)
+    return(min(ans, max_val - min_val))
+k = 3
+arr = [3, 9, 12, 16, 20]
+print(mini_height(arr,k))
