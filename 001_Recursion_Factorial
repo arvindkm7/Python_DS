@@ -1,0 +1,11 @@
+# Factorial
+
+def factorial(n):
+    # test for base case
+    if n == 0:
+        return 1
+    else:
+    # make a calulation and return the result
+        return n * factorial(n-1)
+    
+print(factorial(5))
